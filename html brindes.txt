@@ -1,0 +1,1713 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+
+        <title>XBZ Brindes</title>
+<meta name='description' content='XBZ Brindes - Os melhores brindes estão aqui!' />
+<meta name='keywords' content='XBZ Brindes' />
+
+<meta property='fb:app_id' content='1734152619961461' />
+<meta property='og:type' content='website' />
+<meta property='og:url' content='https:/www.xbzbrindes.com.br/index?z=143309' />
+<meta property='og:title' content='XBZ Brindes' />
+<meta property='og:description' content='XBZ Brindes - Os melhores brindes estão aqui!' />
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:image:width' content='610' />
+<meta name='twitter:image:height' content='610' />
+<meta property='og:image:width' content='1200' />
+<meta property='og:image:height' content='630' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=1" />
+
+		<link href="/img/favicon.ico" type="image/x-icon" rel="icon">
+		<link href="/img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="/css/geral.css?x=143309" />
+
+        <link rel="stylesheet" type="text/css" href="/css/custom.css?x=202306151720" />
+        <link href="/css/swiper.min.css"  media="all" rel="stylesheet" />
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  media="all" rel="stylesheet" />
+
+        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+        <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script-->
+
+		<script>
+			var path = '/';
+			var index = '/';
+		</script>
+	</head>
+	<body id="body" onload="carregar()">
+        
+        <header id="top" role="banner" >
+            <nav class="navbar navbar-site">
+                <div class="menu-desktop hidden-xs hidden-sm">
+                    <div class="container">
+                        <div class="nav nav-topo">
+                            <a href="/" class="navbar-site-brand"><img src="/img/home/logo.png?x=143309"></a>
+                        </div>
+                        <div  class="nav navbar-nav nav-home mobile-frase" style="text-align: right; ">  
+                        </div>
+                        <ul class="nav navbxar-nav naxvbar-center nav-home">
+                            <li class="central"><a href="https://wa.me/message/TA56R35TL63SB1">Central de atendimento</a></li>
+                            <li class="login"><a href="http://www.xbzbrindes.com.br/login" >Login</a></li><!-- <li class="carrinho"><a href="/pedido">Carrinho</a></li> -->
+                            <li class="busca dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="input_busca">Busca</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <form name="busca" action="/buscar" method="GET" class="form-inline" id='buscaform'>
+                                            <div class="form-group">
+                                                <input type="text" name="busca" id="input_busca2" class="form-control textbusca" value="" placeholder="Busque seus produtos aqui" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="image" src="/img/assets/lupa_1.png" id="btnbusca"/>
+                                            </div>
+                                        </form>
+                                    </li>
+                                    <script>
+                                            function carregar(){
+                                                if(document.getElementById("tamanho_string")){
+                                                    _w = document.getElementById("tamanho_string").offsetWidth;
+                                                    //document.getElementById("margem").offsetWidth = _w + 5;
+                                                    $("#margem").css("width", (_w + 35) + "px");
+                                                } 
+                                            }
+
+                                            $(document).ready(function(){
+                                                $("#input_busca").click(function(){
+                                                    setTimeout(function(){ $("#input_busca2").focus(); }, 500);
+                                                });
+
+                                                $('#buscaform').submit(function(e){
+                                                    busca = $('#input_busca2').val();
+
+                                                    e.preventDefault();
+                                                    $.ajax({
+                                                        url : index+"validaBusca",
+                                                        type : 'post',
+                                                        data : {'busca' : busca} ,
+                                                        success: function(out){
+                                                            if(out==1){
+                                                                window.location.href=index+"buscar?busca="+busca+"&x=0&y=0";
+                                                            }else{
+                                                                sweetAlert({
+                                                                    icon : 'error',
+                                                                    title : 'Ops...',
+                                                                    text : 'Não encontramos nenhum resultado para sua busca por "'+busca+' ". Aproveite e conheça toda nossa linha de produtos'
+                                                                });
+                                                            }
+                                                        }
+                                                    })
+                                                })
+                                                $('#buscaformmobile').submit(function(e){
+                                                    busca = $('#buscavaluemobile').val();
+
+                                                    e.preventDefault();
+                                                    $.ajax({
+                                                        url : index+"validaBusca",
+                                                        type : 'post',
+                                                        data : {'busca' : busca} ,
+                                                        success: function(out){
+                                                            if(out==1){
+                                                                window.location.href=index+"buscar?busca="+busca+"&x=0&y=0";
+                                                            }else{
+                                                                sweetAlert({
+                                                                    icon : 'error',
+                                                                    title : 'Ops...',
+                                                                    text : 'Não encontramos nenhum resultado para sua busca por "'+busca+' ". Aproveite e conheça toda nossa linha de produtos'
+                                                                });
+                                                            }
+                                                        }
+                                                    })
+                                                })
+
+                                            });
+                                                
+                                        </script>
+                                </ul>
+                            </li>
+                            <li class="skype"><!--a href="/cadastro">Skype</a-->
+                                <span style="color: #fff; font-weight: 100; text-transform: uppercase;position: absolute; bottom: 26px; width: 250px; float:right; font-size: 12px;">
+                                    <!-- Não atendemos cliente final. -->
+                                    Atendemos somente empresas estabelecidas no ramo promocional, especializadas na revenda de brindes.
+                                </span>
+                            </li></ul>
+                    </div>
+                </div>
+                <div class="menu-mobile visible-sm-block visible-xs" >
+                    <div class="container">
+                        <div class="text-center">
+                            <a href="/"><img src="/img/home/logo.png"></a>
+                        </div>
+                        <ul class="list-inline text-center">
+                            <li class="login"><a href="http://www.xbzbrindes.com.br/login">Login</a></li><!-- <li class="carrinho"><a href="/pedido">Carrinho</a></li> -->
+                            <li class="busca"><a href="#">Busca</a></li>
+                            <!--li class="skype"><a href="/cadastro">Skype</a></li-->
+                            <li class="whatsapp"><a href="https://wa.me/message/TA56R35TL63SB1" title="Whatsapp perfect " target="_blank">Whatsapp</a></li></ul>
+                        <div class="text-center form_busca_mobile" style="display: none">
+                            <form name="busca" action="/buscar" method="POST" class="form-inline" id='buscaformmobile'>
+                                <div class="form-group">
+                                    <input type="text" name="busca" class="form-control textbusca" value="" placeholder="Busque seus produtos aqui" id='buscavaluemobile'/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="image" src="/img/assets/lupa_1.png" id="btnbusca"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+		<article>
+			<div class="erro escondido font_geral" id="d-erro" style="xdisplay:none" onClick="javascript:$('div.erro').switchClass('visivel','escondido',300);">
+				
+			</div>
+            <script>
+                var set_erro = function(){
+
+                    setTimeout(function(){
+                        $("div.erro").switchClass("escondido","visivel",300);
+                    },700);
+
+                    setTimeout(function(){
+                        $("div.erro").switchClass("visivel","escondido",300);
+                    },5000);
+                }
+            </script>
+            </article>
+		
+		<article class="miolo">		
+			<div class="top_site font_geral" style="display:none;">
+				<div class="container_top_site"></div>
+			</div>		
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<section>
+	<div class="swiper-container" id="banner-home">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide hidden-xs hidden-sm" >
+				<a href="https://xbzbrindes.com.br/brindes/DIA-DOS-PAIS?utm_source=Site&utm_medium=Banner&utm_campaign=Dia_dos_Pais" target="_blank" class="s_a">
+					<video muted loop width="100%" height='100%' style='width:100%' autoplay class="media-player" src=""  preload="metadata" poster="/img/banner/banner_pais_1920x600.jpg?width:100%">
+
+							Your browser does not support the video tag.
+					</video>
+					<!-- <img src="/img/banner/banner_pais_1920x600.jpg" width="100%" style="margin:0;border:0;padding:0;display:block;" alt="" /> -->
+				</a>
+			</div><div class="swiper-slide hidden-xs hidden-sm" >
+				<a href="https://www.xbzbrindes.com.br/05086" target="_blank" class="s_a">
+					<video muted loop width="100%" height='100%' style='width:100%' autoplay class="media-player" src=""  preload="metadata" poster="/img/banner/banner_05086_1920x600.jpg?width:100%">
+
+							Your browser does not support the video tag.
+					</video>
+					<!-- <img src="/img/banner/banner_05086_1920x600.jpg" width="100%" style="margin:0;border:0;padding:0;display:block;" alt="" /> -->
+				</a>
+			</div><div class="swiper-slide hidden-xs hidden-sm" >
+				<a href="https://www.xbzbrindes.com.br/05076" target="_blank" class="s_a">
+					<video muted loop width="100%" height='100%' style='width:100%' autoplay class="media-player" src=""  preload="metadata" poster="/img/banner/banner_05076_1920x600.jpg?width:100%">
+
+							Your browser does not support the video tag.
+					</video>
+					<!-- <img src="/img/banner/banner_05076_1920x600.jpg" width="100%" style="margin:0;border:0;padding:0;display:block;" alt="" /> -->
+				</a>
+			</div></div>
+        <div class="swiper-button-prev btn-prev"></div>
+		<div class="swiper-button-next btn-next"></div></div>
+	
+
+	<!-- Swiper Mobile -->
+	<div class="swiper-container" id="banner-home-mob">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide hidden-md hidden-lg">
+				<a href="https://xbzbrindes.com.br/brindes/DIA-DOS-PAIS?utm_source=Site&utm_medium=Banner&utm_campaign=Dia_dos_Pais" target="_blank" class="s_a">
+					<video muted loop width="100%" height='100%' style='width:100%' autoplay class="media-player" src=""  preload="metadata" poster="/img/banner/banner_pais_1014x535.jpg?width:100%">
+
+							Your browser does not support the video tag.
+					</video>
+					<!-- <img src="/img/banner/banner_pais_1920x600.jpg" width="100%" style="margin:0;border:0;padding:0;display:block;" alt="" /> -->
+				</a>
+			</div><div class="swiper-slide hidden-md hidden-lg">
+				<a href="https://www.xbzbrindes.com.br/05086" target="_blank" class="s_a">
+					<video muted loop width="100%" height='100%' style='width:100%' autoplay class="media-player" src=""  preload="metadata" poster="/img/banner/banner_05086_1014x535.jpg?width:100%">
+
+							Your browser does not support the video tag.
+					</video>
+					<!-- <img src="/img/banner/banner_05086_1920x600.jpg" width="100%" style="margin:0;border:0;padding:0;display:block;" alt="" /> -->
+				</a>
+			</div><div class="swiper-slide hidden-md hidden-lg">
+				<a href="https://www.xbzbrindes.com.br/05076" target="_blank" class="s_a">
+					<video muted loop width="100%" height='100%' style='width:100%' autoplay class="media-player" src=""  preload="metadata" poster="/img/banner/banner_05076_1014x535.jpg?width:100%">
+
+							Your browser does not support the video tag.
+					</video>
+					<!-- <img src="/img/banner/banner_05076_1920x600.jpg" width="100%" style="margin:0;border:0;padding:0;display:block;" alt="" /> -->
+				</a>
+			</div></div>
+        </div>
+	
+</section>
+<script>
+	$(document).ready(function(){
+        var swiper = new Swiper ('#banner-home',{
+            loop: true,
+			slidesPerView : 1,
+			loopAdditionalSlides : 0,
+            autoplay: {
+                delay: 10000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+	    }) ;
+
+
+		var swiper = new Swiper ('#banner-home-mob',{
+            loop: true,
+			slidesPerView : 1,
+			loopAdditionalSlides : 0,
+            autoplay: {
+                delay: 10000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+	    }) ;});
+</script><section class="index font_geral" style="background-color:white">
+	<!--script>
+		display:none;b_container_efectimg_b_opacity
+		var banner_arr = new Array();
+		var banner_arr_thumbs = new Array();
+		var intervalo = 10000; //tempo mili sec
+		var indice = 0;
+		var thumbs = $('.banner .thumbs_container ul li');	
+		var slide = '';
+		var size_arr = 0;
+		var transacao_imagem = 0; //tempo mili sec , se valor 0 assumi valor padrao definido pela funçao 
+		var transacao_texto = 0; //tempo mili sec , se valor 0 assumi valor padrao definido pela funçao
+		var transacao_entrada_saida = 0; //tempo mili sec , se valor 0 assumi valor padrao definido pela funçao
+		
+		function slideBanner(){
+			if(transacao_imagem==0)transacao_imagem = intervalo*0.35;
+			if(transacao_texto==0)transacao_texto  = intervalo*0.13;
+			if(transacao_entrada_saida==0)transacao_entrada_saida = intervalo*0.32;
+			
+			i=0;
+			$('.banner section').each(function(){
+				banner_arr[i] = $(this);
+				i++;
+			});
+			i=0
+			thumbs.each(function(){
+				banner_arr_thumbs[i] = $(this);
+				banner_arr_thumbs[i].data('tCont',i);
+				i++;
+			});	
+			banner_arr_thumbs[0].switchClass(" ","selected",500);
+			size_arr = banner_arr.length;			
+			
+			inicializaSlide();
+			
+			thumbs.bind('click',function(){				
+				indice_anterior = indice;
+				indice = eval($(this).data('tCont'));
+				clearInterval(slide);
+				
+				thumbs.hide();
+				banner_arr[indice_anterior].css('display','none');
+				banner_arr[indice].css('display','block');					
+				thumbs.removeClass("selected");
+				banner_arr_thumbs[indice].switchClass(" ","selected",500);
+				banner_arr[indice].animate({opacity:1},transacao_imagem);
+				banner_arr[indice].children('div').switchClass('b_container_efect','b_container',transacao_texto, function(){thumbs.show();});	
+			
+				inicializaSlide();
+			});
+		}
+
+		function inicializaSlide(){
+			slide = setInterval(function(){
+				indice_anterior = indice;	
+				
+				thumbs.hide();
+				banner_arr[indice].children('div').switchClass('b_container','b_container_efect',transacao_texto);				
+				banner_arr[indice].animate({opacity:0.3},transacao_imagem);				
+				indice++;
+				if(indice==size_arr){
+					indice=0;
+				}
+				setTimeout(function(){
+					banner_arr[indice_anterior].css('display','none');
+					banner_arr[indice].css('display','block');					
+					thumbs.removeClass("selected");
+					banner_arr_thumbs[indice].switchClass(" ","selected",500);					
+					banner_arr[indice].animate({opacity:1},transacao_imagem);
+					banner_arr[indice].children('div').switchClass('b_container_efect','b_container',transacao_texto, function(){thumbs.show();});	
+				},transacao_entrada_saida);
+				
+			},intervalo);
+		}
+		
+		$(document).ready(function(){
+            slideBanner()
+        });
+	
+	</script-->
+	
+	<div id="menunav">
+    <div class="container">
+        <ul class="list-unstyled list-inline">
+            <li class="menuhome selected"><a href="/">Home</a></li>
+            <!-- <li class="menusobre "><a href="http://www.xbzbrindes.com.br/sobre">Sobre</a></li> -->
+            <li class="menulancamentos "><a href="/lancamentos">Lançamentos</a></li>
+            <li class="menuprodutos "><a href="http://www.xbzbrindes.com.br/brindes">Produtos</a></li>
+            <li class="menupontaestoque "><a href="/ponta-de-estoque">Ponta de estoque</a></li>
+            
+            
+			<li class="menupromocoes "><a href="/promocoes">Promoções</a></li><!-- <li class="menuvideos "><a href="/videos">Vídeos</a></li> -->
+
+            <li class="menucontato "><a href="https://wa.me/message/TA56R35TL63SB1">Contato</a></li>
+            <li class="menucadastro "><a href="http://www.xbzbrindes.com.br/cadastro">Cadastro</a></li>
+            <!-- <li class="menusac "><a href="http://www.xbzbrindes.com.br/sac-xbz">Sac</a></li> -->
+            <li class="menuempresagravacao "><a href="/institucional/Empresas-Gravacao">Empresas de Gravações</a></li>
+        </ul>
+    </div>
+</div>
+<div id="menunav2" style="display:none">
+    <div class="container">
+		<ul class="list-unstyled list-inline">
+            <li><a href="http://www.xbzbrindes.com.br/brindes/DIA-DOS-PAIS">***DIA DOS PAIS***</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Acessorios-p-Celular">Acessórios p/ Celular</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Acessorios-para-Carros">Acessórios para Carros</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Bar-e-Bebidas">Bar e Bebidas</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Blocos-e-Cadernetas">Blocos e Cadernetas</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Bolsas-Termicas">Bolsas Térmicas</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Caixas-de-Som">Caixas de Som</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Calculadoras">Calculadoras</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Canecas">Canecas</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Canetas">Canetas</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Carregadores-Power-Bank">Carregadores Power Bank</a></li></ul><ul class="list-unstyled list-inline">
+            <li><a href="http://www.xbzbrindes.com.br/brindes/Carteiras-e-Porta-Documentos">Carteiras e Porta Documentos</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Chaveiros">Chaveiros</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Conjuntos-Executivos">Conjuntos Executivos</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Copos">Copos</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Cozinha">Cozinha</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Cuidados-Pessoais">Cuidados Pessoais</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Diversos">Diversos</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Escritorio">Escritório</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Estojos">Estojos</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Ferramentas">Ferramentas</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Fones-de-Ouvido">Fones de Ouvido</a></li></ul><ul class="list-unstyled list-inline">
+            <li><a href="http://www.xbzbrindes.com.br/brindes/Guarda-Chuva">Guarda-Chuva</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Informatica-e-Telefonia">Informática e Telefonia</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Kit-Churrasco">Kit Churrasco</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Kit-Queijo">Kit Queijo</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Lanternas-e-Luminarias">Lanternas e Luminárias</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Lapis-e-Lapiseiras">Lápis e Lapiseiras</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Linha-Ecologica">Linha Ecológica</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Linha-Feminina">Linha Feminina</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Linha-Masculina">Linha Masculina</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Mochilas-e-Malas">Mochilas e Malas</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Necessaires">Necessaires</a></li></ul><ul class="list-unstyled list-inline">
+            <li><a href="http://www.xbzbrindes.com.br/brindes/Pastas">Pastas</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Pen-Drives">Pen Drives</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Petisqueiras">Petisqueiras </a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Porta-Canetas">Porta Canetas</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Porta-Retratos">Porta Retratos</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Relogios">Relógios</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Squeezes-e-Garrafas">Squeezes e Garrafas</a></li><li><a href="http://www.xbzbrindes.com.br/brindes/Tabuas">Tábuas</a></li></ul></div>
+</div>
+
+<script>
+	function aparecemenu(){
+		$(".ul_menu_mobile").slideToggle();
+	}
+	
+	$(document).ready(function(){
+		// Mostra menu Mobile
+		$('#menu_mobile').bind('click',function(){
+			switch($('.menu_mobile').css('display')){
+				case 'none':
+					$('.menu_responsivo').css('width','100%');
+					$('.menu_mobile').slideToggle();
+					break;
+				case 'block':
+					$('.menu_mobile').slideToggle();
+					setTimeout( function(){ $('.menu_responsivo').css('width','auto'); },500);
+					break;
+			}
+		});
+		
+		$(".icon_busca_mobile").click( function(){
+			
+			switch($("#busca_mobile").css('display')){
+				case 'none':
+					$('.menu_responsivo').css('width','100%');
+					//$("#busca_mobile").slideToggle();
+					$("#busca_mobile").animate({width:'toggle'});
+					break;
+				case 'block':
+					//$("#busca_mobile").slideToggle();
+					$("#busca_mobile").animate({width:'toggle'});
+					setTimeout( function(){ $('.menu_responsivo').css('width','auto'); },500);
+					break;
+			}
+			
+		});
+	});
+
+</script>
+
+<!-- / -->
+<!-- / Object selected -->
+
+	<div class="categoria-destaquecategoria" style="padding-top:55px;padding-bottom:55px;background:#FFF;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 padding_0">
+                
+                <div class="col-md-6 col-sm-12 col-xs-12 banner-destaque">
+                    <div class="swiper-container _slide_bannersdestaques">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><a href="https://encurtador.com.br/uKPTW"><img src="/img/banner/64a2a894567a9bannersdestaqueslide05078_567x617_TESTE 4.jpg" alt="Campanha Destaque JUL23" style="max-width: 100%;"/></a></div><div class="swiper-slide"><a href="https://encurtador.com.br/uKPTW"><img src="/img/banner/64a2a8946bad3bannersdestaqueslide05077_567x617_TESTE 4.jpg" alt="Campanha Destaque JUL23" style="max-width: 100%;"/></a></div><div class="swiper-slide"><a href="https://encurtador.com.br/uKPTW"><img src="/img/banner/64a2a8947b3d1bannersdestaqueslide05075_567x617_TESTE 4.jpg" alt="Campanha Destaque JUL23" style="max-width: 100%;"/></a></div></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class='row'>
+                        <div class="col-md-6 col-sm-6 col-xs-6 padding_0 banner-destaque">
+                            <div class="">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a href="https://encurtador.com.br/bhoT0"><img src="/img/banner/bannerdestaque_2_01325_268x330_cinza_1_1.jpg" alt="Campanha 01325" class="img-responsive" style="width:100%"></a>
+                                    </div></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 banner-destaque">
+                            <div class="">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a href="https://encurtador.com.br/fiMT4"><img src="/img/banner/bannerdestaque_3_03006t_268x330_roxo.jpg" alt="Campanha 03006t" class="img-responsive" style="width:100%"></a>
+                                    </div></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:36px;">
+                            <div class="">
+                                <div class="swiper-wrapper">
+                                    <div>
+                                        <a href="https://encurtador.com.br/bpyG0"><img src="/img/banner/bannerdestaque_4_05096_568x250_verde.jpg" alt="Campanha 05096" class="img-responsive" style="width:100%"></a>
+                                    </div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12 padding_0" style="margin-top: 36px;">
+                
+                <div class="col-md-4 col-sm-12 col-xs-12 banner-destaque">
+                    <div class="">
+                        <div class="swiper-wrapper">
+                            <div>
+                                <a href="https://bit.ly/Lancamentos_60DIAS"><img src="/img/banner/bannerdestaque_5_60 dias_368x200.jpg" alt="Campanha Últimos Lançamentos" class="img-responsive" style="width:100%"></a>
+                            </div></div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-xs-12 banner-destaque">
+                    <div class="">
+                        <div class="swiper-wrapper">
+                            <div>
+                                <a href="https://bit.ly/YTvideo_18511_02356"><img src="/img/banner/bannerdestaque_6_novo video_368x200.jpg" alt="Campanha YT - 18511 e 02356" class="img-responsive" style="width:100%"></a>
+                            </div></div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-xs-12 banner-destaque">
+                    <div class="">
+                        <div class="swiper-wrapper">
+                            <div>
+                                <a href="https://encurtador.com.br/ciq45"><img src="/img/banner/bannerdestaque_7_feedback_368x200.jpg" alt="Campanha Sugestões e Feedbacks" class="img-responsive" style="width:100%"></a>
+                            </div></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+	<div class="slide-Lancamentos">
+		<div class="page-header">
+			<div class="container" style="position:relative">
+				<h1><a href="/lancamentos" title="Lançamentos" style="color:#666;cursor:pointer">Lançamentos</a></h1>
+				<div class="button-slide-lanc">
+					<div class="swiper-button-next next-lanc" id="next-lanc"></div>
+					<div class="swiper-button-prev prev-lanc" id="prev-lanc"></div>
+				</div>
+			</div>
+		</div>
+		<div class="carroselprodutos">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="swiper-container" id="slide-lancamentos" >
+							<div class="swiper-wrapper">
+								<div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <a href="https://www.xbzbrindes.com.br/14900"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Jogo-da-Velha-Premium-16622-1688669574.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Jogo-da-Velha-Premium-16622-1688669574.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Jogo-da-Velha-Premium-16622d1-1688669574.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Jogo-da-Velha-Premium-16622-1688669574.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/14900">14900</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/14900">Jogo da Velha Premium.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/05089"><img src="/img/splash/PREVIA-91.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/05089"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Power-Bank-Plastico-5-000mAh-16668-1689087234.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Power-Bank-Plastico-5-000mAh-16668-1689087234.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Power-Bank-Plastico-5-000mAh-16668d1-1689087329.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Power-Bank-Plastico-5-000mAh-16668-1689087234.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/05089">05089</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/05089">Power Bank Plástico 5.000mAh.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <a href="https://www.xbzbrindes.com.br/05076"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Garrafa-de-Vidro-1L-16419-1685652326.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Garrafa-de-Vidro-1L-16419-1685652326.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Garrafa-de-Vidro-1L-16419d1-1685652327.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Garrafa-de-Vidro-1L-16419-1685652326.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/05076">05076</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/05076">Garrafa de Vidro 1L.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/06005"><img src="/img/splash/PREVIA-91.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/06005"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Power-Bank-10-000mAh-com-Indicador-LED-PRETO-16489-1685704774.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Power-Bank-10-000mAh-com-Indicador-LED-PRETO-16489-1685704774.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Power-Bank-10-000mAh-com-Indicador-LED-PRETO-16489-1685704774.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/06005">06005</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/06005">Power Bank 10.000mAh com Indicador LED.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <a href="https://www.xbzbrindes.com.br/14898"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Conjunto-de-Baralhos-Premium-16659-1689079221.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Conjunto-de-Baralhos-Premium-16659-1689079221.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Conjunto-de-Baralhos-Premium-16659d1-1689079222.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Conjunto-de-Baralhos-Premium-16659-1689079221.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/14898">14898</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/14898">Conjunto de Baralhos Premium.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <a href="https://www.xbzbrindes.com.br/14903"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Box-Baby-Book-Premium-16634-1688740363.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Box-Baby-Book-Premium-16634-1688740363.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Box-Baby-Book-Premium-16634d1-1688740442.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Box-Baby-Book-Premium-16634-1688740363.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/14903">14903</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/14903">Box Baby Book Premium.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <a href="https://www.xbzbrindes.com.br/05078"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Garrafa-de-Vidro-650ml-16429-1685715412.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Garrafa-de-Vidro-650ml-16429-1685715412.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Garrafa-de-Vidro-650ml-16429d1-1685715412.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Garrafa-de-Vidro-650ml-16429-1685715412.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/05078">05078</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/05078">Garrafa de Vidro 650ml.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <a href="https://www.xbzbrindes.com.br/09138"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Squeeze-Aluminio-420ml-16523-1688146679.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Squeeze-Aluminio-420ml-16523-1688146679.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Squeeze-Aluminio-420ml-16523d1-1689076951.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Squeeze-Aluminio-420ml-16523-1688146679.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/09138">09138</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/09138">Squeeze Alumínio 420ml.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <a href="https://www.xbzbrindes.com.br/05083"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Chaveiro-Metal-Abridor-16447-1686155833.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Chaveiro-Metal-Abridor-16447-1686155833.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Chaveiro-Metal-Abridor-16447d1-1686155833.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Chaveiro-Metal-Abridor-16447-1686155833.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/05083">05083</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/05083">Chaveiro Metal Abridor.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <a href="https://www.xbzbrindes.com.br/05074"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Garrafa-de-Vidro-750ml-16423-1686148880.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Garrafa-de-Vidro-750ml-16423-1686148880.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Garrafa-de-Vidro-750ml-16423d1-1685651980.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Garrafa-de-Vidro-750ml-16423-1686148880.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/05074">05074</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/05074">Garrafa de Vidro 750ml.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <a href="https://www.xbzbrindes.com.br/4267f_"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Chaveiro-Metal-Abridor-16451-1687778148.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Chaveiro-Metal-Abridor-16451-1687778148.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Chaveiro-Metal-Abridor-16451d1-1686150126.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Chaveiro-Metal-Abridor-16451-1687778148.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/4267f_">4267F</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/4267f_">Chaveiro Metal Abridor.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/05088"><img src="/img/splash/PREVIA-91.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/05088"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Caneta-Metal-16608-1688561294.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Caneta-Metal-16608-1688561294.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Caneta-Metal-16608-1688561294.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/05088">05088</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/05088">Caneta Metal.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/06028"><img src="/img/splash/breve-92.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/06028"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Agenda-Couro-Sintetico-2024-16682-1689333375.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Agenda-Couro-Sintetico-2024-16682-1689333375.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Agenda-Couro-Sintetico-2024-16682d1-1689333424.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Agenda-Couro-Sintetico-2024-16682-1689333375.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/06028">06028</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/06028">Agenda Couro Sintético 2024.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/05099"><img src="/img/splash/PREVIA-91.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/05099"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Guarda-chuva-Automatico-16675-1689176294.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Guarda-chuva-Automatico-16675-1689176294.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Guarda-chuva-Automatico-16675d1-1689176387.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Guarda-chuva-Automatico-16675-1689176294.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/05099">05099</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/05099">Guarda-chuva Automático.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <a href="https://www.xbzbrindes.com.br/14909"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Lapis-Infinito-16650-1689076141.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Lapis-Infinito-16650-1689076141.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Lapis-Infinito-16650d1-1689076141.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Lapis-Infinito-16650-1689076141.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/14909">14909</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/14909">Lápis Infinito.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/05090"><img src="/img/splash/PREVIA-91.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/05090"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Power-Bank-10-000mAh-Multissaidas-com-Suporte-para-Celular-ou-Tablet-16612-1688644826.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Power-Bank-10-000mAh-Multissaidas-com-Suporte-para-Celular-ou-Tablet-16612-1688644826.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Power-Bank-10-000mAh-Multissaidas-com-Suporte-para-Celular-ou-Tablet-16612-1688644826.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/05090">05090</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/05090">Power Bank 10.000mAh Multissaídas com Suporte para Celular ou Tablet.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <a href="https://www.xbzbrindes.com.br/06000"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Misturador-Eletrico-Portatil-16644-1689018742.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Misturador-Eletrico-Portatil-16644-1689018742.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Misturador-Eletrico-Portatil-16644d1-1689018767.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Misturador-Eletrico-Portatil-16644-1689018742.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/06000">06000</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/06000">Misturador Elétrico Portátil.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/18717"><img src="/img/splash/PREVIA-91.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/18717"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Porta-Joias-16688-1689626728.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Porta-Joias-16688-1689626728.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Porta-Joias-16688-1689626728.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/18717">18717</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/18717">Porta Joias.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <a href="https://www.xbzbrindes.com.br/05081"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Kit-Ferramenta-8-Pecas-16460-1686151627.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Kit-Ferramenta-8-Pecas-16460-1686151627.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Kit-Ferramenta-8-Pecas-16460d1-1686151627.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Kit-Ferramenta-8-Pecas-16460-1686151627.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/05081">05081</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/05081">Kit Ferramenta 8 Peças.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div><div class="col-md-6 com-sm-6 swiper-slide">
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <a href="https://www.xbzbrindes.com.br/05096"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Bolsa-Esportiva-39-Litros-16367-1685718641.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Bolsa-Esportiva-39-Litros-16367-1685718641.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Bolsa-Esportiva-39-Litros-16367d1-1686309581.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Bolsa-Esportiva-39-Litros-16367-1685718641.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/05096">05096</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/05096">Bolsa Esportiva 39 Litros.</a></p>
+        <div class="info-sem-ponta">&nbsp;</div></div>
+    </div>
+								</div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><div class="slide-Sestoque">
+		<div class="page-header">
+			<div class="container" style='position:relative'>
+				<h1><a href="/ponta-de-estoque" title="Ponta de Estoque" style="color:#666;cursor:pointer">Ponta de Estoque</a></h1>
+				<div class="button-slide-Sestoque">
+					<div class="swiper-button-next next-lanc" id="next-estoque"></div>
+					<div class="swiper-button-prev prev-lanc" id="prev-estoque"></div>
+				</div>
+			</div>
+		</div>
+		<div class="carroselprodutos">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="swiper-container Sestoque" id="Sestoque">
+							<div class="swiper-wrapper">
+								<div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/01100"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/01100"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/1100-PRA-Caneta-Metal-349.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/1100-PRA-Caneta-Metal-349.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/1100-PRA-Caneta-Metal-349.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/01100">P@01100</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/01100">Caneta Metal.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 1,49 un.
+            </span>
+            <span class="qtd-estoque">
+                5 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/14598"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/14598"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Adesivo-Porta-Cartao-para-Celular-com-Anel-de-Suporte-PRETO-13042-1623240058.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Adesivo-Porta-Cartao-para-Celular-com-Anel-de-Suporte-PRETO-13042-1623240058.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Adesivo-Porta-Cartao-para-Celular-com-Anel-de-Suporte-13041d1-1623240057.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Adesivo-Porta-Cartao-para-Celular-com-Anel-de-Suporte-PRETO-13042-1623240058.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/14598">P@14598</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/14598">Adesivo Porta Cartão para Celular com Anel de Suporte.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 3,99 un.
+            </span>
+            <span class="qtd-estoque">
+                2 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/p-18517"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/p-18517"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Porta-Comprimido-Semanal-ROSA-8939-1546696098.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Porta-Comprimido-Semanal-ROSA-8939-1546696098.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Porta-Comprimido-Semanal-8936d1-1546696098.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Porta-Comprimido-Semanal-ROSA-8939-1546696098.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/p-18517">P@18517</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/p-18517">Porta Comprimido Semanal.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 0,99 un.
+            </span>
+            <span class="qtd-estoque">
+                394 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/p-11683"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/p-11683"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Capa-para-Notebook-12-449-1528228035.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Capa-para-Notebook-12-449-1528228035.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Capa-para-Notebook-12-449d1-1528228036.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Capa-para-Notebook-12-449-1528228035.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/p-11683">P@11683</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/p-11683">Capa Tablet e notebook.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 4,99 un.
+            </span>
+            <span class="qtd-estoque">
+                103 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/18541"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/18541"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Copo-ROSA-10416-1567714817.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Copo-ROSA-10416-1567714817.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Copo-Plastico-480ml-10413d1-1567769992.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Copo-ROSA-10416-1567714817.jpg&w=300' data-indice='1' style='max-width:100%;' /></a><div class='splash_360'><img src="/img/360_splash.png" alt="splash 360" /></div> 
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/18541">P@18541</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/18541">Copo Plástico 480ml.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 4,99 un.
+            </span>
+            <span class="qtd-estoque">
+                159 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/14200"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/14200"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Protetor-Para-Camera-Webcam-Cover-BRANCO-9922-1561151564.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Protetor-Para-Camera-Webcam-Cover-BRANCO-9922-1561151564.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Protetor-para-Camera-9920d1-1628886847.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Protetor-Para-Camera-Webcam-Cover-BRANCO-9922-1561151564.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/14200">P@14200</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/14200">Protetor para Câmera.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 3,49 un.
+            </span>
+            <span class="qtd-estoque">
+                20 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/p-twg1051"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/p-twg1051"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Adesivos-Decorativos-3D-15536-1669146963.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Adesivos-Decorativos-3D-15536-1669146963.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Adesivos-Decorativos-3D-15536-1669146963.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/p-twg1051">P@TWG1051</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/p-twg1051">Adesivos Decorativos 3D.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 6,99 un.
+            </span>
+            <span class="qtd-estoque">
+                68 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/11827"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/11827"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/11827-AMA-Lapis-Ecologico-com-Borracha-2045.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/11827-AMA-Lapis-Ecologico-com-Borracha-2045.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Lapis-Ecologico-com-Borracha-2044d1-1533758796.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/11827-AMA-Lapis-Ecologico-com-Borracha-2045.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/11827">P@11827</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/11827">Lápis Ecológico com Borracha.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 0,60 un.
+            </span>
+            <span class="qtd-estoque">
+                76 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/p-18105"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/p-18105"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Adesivos-Decorativos-3D-15473-1668177936.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Adesivos-Decorativos-3D-15473-1668177936.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Adesivos-Decorativos-3D-15473d1-1669131959.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Adesivos-Decorativos-3D-15473-1668177936.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/p-18105">P@18105</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/p-18105">Adesivos Decorativos 3D.
+</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 7,99 un.
+            </span>
+            <span class="qtd-estoque">
+                1400 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/00957"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/00957"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Caneta-Plastica-VERMELHO-6689-1595522376.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Caneta-Plastica-VERMELHO-6689-1595522376.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Caneta-Plastica-VERMELHO-6689-1595522376.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/00957">P@00957</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/00957">Caneta Plástica.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 0,49 un.
+            </span>
+            <span class="qtd-estoque">
+                52 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/18559"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/18559"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Capa-a-Prova-D-Agua-para-Celular-11424-1579178137.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Capa-a-Prova-D-Agua-para-Celular-11424-1579178137.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Capa-a-Prova-D-Agua-para-Celular-11424d1-1579278089.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Capa-a-Prova-D-Agua-para-Celular-11424-1579178137.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/18559">P@18559</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/18559">Capa TPU à Prova D’Água para Celular.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 9,99 un.
+            </span>
+            <span class="qtd-estoque">
+                3042 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/p-5204"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/p-5204"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15326-1667489571.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15326-1667489571.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15326d1-1667492681.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15326-1667489571.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/p-5204">P@5204</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/p-5204">Papel de Parede 10 Metros.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 36,00 un.
+            </span>
+            <span class="qtd-estoque">
+                114 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/p-5205"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/p-5205"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15329-1667493068.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15329-1667493068.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15329d1-1667493121.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15329-1667493068.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/p-5205">P@5205</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/p-5205">Papel de Parede 10 Metros.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 36,00 un.
+            </span>
+            <span class="qtd-estoque">
+                48 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/p-5201"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/p-5201"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15335-1667494463.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15335-1667494463.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15335d1-1667494528.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15335-1667494463.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/p-5201">P@5201</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/p-5201">Papel de Parede 10 Metros.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 36,00 un.
+            </span>
+            <span class="qtd-estoque">
+                30 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/p-5207"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/p-5207"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15344-1667497218.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15344-1667497218.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15344d1-1667497232.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15344-1667497218.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/p-5207">P@5207</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/p-5207">Papel de Parede 10 Metros.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 36,00 un.
+            </span>
+            <span class="qtd-estoque">
+                114 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/p-5104"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/p-5104"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15317-1667484903.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15317-1667484903.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15317d1-1667484975.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Papel-de-Parede-15317-1667484903.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/p-5104">P@5104</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/p-5104">Papel de Parede 10 Metros.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 36,00 un.
+            </span>
+            <span class="qtd-estoque">
+                48 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/14464"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/14464"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Chaveiro-Almofada-VERMELHO-12081-1594217067.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Chaveiro-Almofada-VERMELHO-12081-1594217067.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Chaveiro-Almofada-12076d1-1594217123.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Chaveiro-Almofada-VERMELHO-12081-1594217067.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/14464">P@14464</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/14464">Chaveiro Almofada.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 1,99 un.
+            </span>
+            <span class="qtd-estoque">
+                427 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/14726t"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/14726t"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Copo-Inox-Texturizado-Parede-Dupla-320ml-ROSA-15139-1665659329.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Copo-Inox-Texturizado-Parede-Dupla-320ml-ROSA-15139-1665659329.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Copo-Inox-Texturizado-Parede-Dupla-320ml-ROSA-15139-1665659329.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/14726t">P@14726T</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/14726t">Copo Inox Texturizado Parede Dupla 320ml.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 19,99 un.
+            </span>
+            <span class="qtd-estoque">
+                212 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="https://www.xbzbrindes.com.br/14436"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="https://www.xbzbrindes.com.br/14436"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Suporte-Celular-LARANJA-11837-1586285213.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Suporte-Celular-LARANJA-11837-1586285213.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Suporte-Plastico-para-Celular-11834d1-1591386720.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Suporte-Celular-LARANJA-11837-1586285213.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="https://www.xbzbrindes.com.br/14436">P@14436</a></h3>
+        <p><a href="https://www.xbzbrindes.com.br/14436">Suporte Plástico para Celular.</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 1,49 un.
+            </span>
+            <span class="qtd-estoque">
+                15 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div><div class="col-lg-3 col-md-6 com-sm-6 swiper-slide">
+
+									<div class="thumbnail prod">
+    <div class="img-prod">
+        <div class="img-splash">
+            <a href="http://www.xbzbrindes.com.br/brinde/Adesivos-Decorativos-3D-P-18103-15470"><img src="/img/splash/Ponta-de-estoque-34.png" /></a>
+        </div><a href="http://www.xbzbrindes.com.br/brinde/Adesivos-Decorativos-3D-P-18103-15470"><img class='media-object js-detalhe '  data-original='/timthumb/timthumb.php?src=/img/produtos/1/Adesivos-Decorativos-3D-15470-1668177362.jpg&w=300' data-src='/timthumb/timthumb.php?src=/img/produtos/1/Adesivos-Decorativos-3D-15470-1668177362.jpg&w=300'  data-src1='/timthumb/timthumb.php?src=/img/produtos/1/Adesivos-Decorativos-3D-15470d1-1669044624.jpg&w=300'   src='/timthumb/timthumb.php?src=/img/produtos/1/Adesivos-Decorativos-3D-15470-1668177362.jpg&w=300' data-indice='1' style='max-width:100%;' /></a>
+
+    </div>
+    <div class="caption">
+        <h3><a href="http://www.xbzbrindes.com.br/brinde/Adesivos-Decorativos-3D-P-18103-15470">P@18103</a></h3>
+        <p><a href="http://www.xbzbrindes.com.br/brinde/Adesivos-Decorativos-3D-P-18103-15470">Adesivos Decorativos 3D.
+</a></p>
+        <div class="info-ponta-estoque">
+            <span class="preco-unitario">
+                R$ 7,99 un.
+            </span>
+            <span class="qtd-estoque">
+                1000 p&ccedil;a
+            </span>
+        </div>
+        <!--br clear="all"--></div>
+    </div>
+								</div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><div class="page-header" >
+		<div class="container"><h1>Instagram</h1></div>
+	</div>
+	<div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">	
+								<div class="instagram_text col-md-12 col-sm-12 col-xs-12">
+								<h3 style="color:#666666">Acompanhe a XBZ nas redes sociais e fique sabendo de nossas novidades.</h3></div>
+								<div class="instagram_text col-md-12 col-sm-12 col-xs-12">
+									<h4 style="color:#666666">Acesse a área do cliente e faça o download dos posts e stories e use em suas rede sociais!</h4>
+									<h4 style="color:#666666">Siga a XBZ no instagram <a href="https://instagram.com/xbzbrindes_">@xbzbrindes_ </a> </h4><br><br>
+								 </div>									
+					<div class="col-lg-3 col-md-6 com-sm-6 text-center">
+							<a href="/index.php/download/#down_insta">
+						<div class="instagram">
+							<table border="0" width='100%'>
+								<tr>
+									<td style="width: 50px;padding-top:5px;padding-bottom: 5px;padding-left: : 12px;background-color:#d0d0d0 ">
+
+										 <img src="/img/instagram/insta_xbz.jpg" width="40px" height="40px" style="border-radius: 100%;"   />
+									</td>
+									<td style="text-align:center;background-color:#d0d0d0;">
+										Bolsa Esportiva
+									</td>
+								</tr>
+							</table>
+						
+								<img src="/img/instagram///103405096_01.png" class="img-responsive" style="width:100%"/>
+						 <div  class="instagram_div "style="background-color:#d0d0d0; padding-top: 7px; padding-bottom: -5px">
+							
+						</div> 
+					</div>
+					</a>
+					</div><div class="col-lg-3 col-md-6 com-sm-6 text-center">
+							<a href="/index.php/download/#down_insta">
+						<div class="instagram">
+							<table border="0" width='100%'>
+								<tr>
+									<td style="width: 50px;padding-top:5px;padding-bottom: 5px;padding-left: : 12px;background-color:#d0d0d0 ">
+
+										 <img src="/img/instagram/insta_xbz.jpg" width="40px" height="40px" style="border-radius: 100%;"   />
+									</td>
+									<td style="text-align:center;background-color:#d0d0d0;">
+										Kit Ferramentas
+									</td>
+								</tr>
+							</table>
+						
+								<img src="/img/instagram///103305081_01.png" class="img-responsive" style="width:100%"/>
+						 <div  class="instagram_div "style="background-color:#d0d0d0; padding-top: 7px; padding-bottom: -5px">
+							
+						</div> 
+					</div>
+					</a>
+					</div><div class="col-lg-3 col-md-6 com-sm-6 text-center">
+							<a href="/index.php/download/#down_insta">
+						<div class="instagram">
+							<table border="0" width='100%'>
+								<tr>
+									<td style="width: 50px;padding-top:5px;padding-bottom: 5px;padding-left: : 12px;background-color:#d0d0d0 ">
+
+										 <img src="/img/instagram/insta_xbz.jpg" width="40px" height="40px" style="border-radius: 100%;"   />
+									</td>
+									<td style="text-align:center;background-color:#d0d0d0;">
+										Guarda-chuva
+									</td>
+								</tr>
+							</table>
+						
+								<img src="/img/instagram///103205086_01.png" class="img-responsive" style="width:100%"/>
+						 <div  class="instagram_div "style="background-color:#d0d0d0; padding-top: 7px; padding-bottom: -5px">
+							
+						</div> 
+					</div>
+					</a>
+					</div><div class="col-lg-3 col-md-6 com-sm-6 text-center">
+							<a href="/index.php/download/#down_insta">
+						<div class="instagram">
+							<table border="0" width='100%'>
+								<tr>
+									<td style="width: 50px;padding-top:5px;padding-bottom: 5px;padding-left: : 12px;background-color:#d0d0d0 ">
+
+										 <img src="/img/instagram/insta_xbz.jpg" width="40px" height="40px" style="border-radius: 100%;"   />
+									</td>
+									<td style="text-align:center;background-color:#d0d0d0;">
+										Chaveiro
+									</td>
+								</tr>
+							</table>
+						
+								<img src="/img/instagram///103105083_01.png" class="img-responsive" style="width:100%"/>
+						 <div  class="instagram_div "style="background-color:#d0d0d0; padding-top: 7px; padding-bottom: -5px">
+							
+						</div> 
+					</div>
+					</a>
+					</div></div>
+			</div>
+		</div>
+	</div>
+	
+	
+
+
+
+    <!--div id="destaquehome">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 video text-center">
+                    <iframe src="https://www.youtube.com/embed/HCvVMVZh7PY?rel=0&controls=0&showinfo=0&modestbranding=1" frameborder="0" allowfullscreen xstyle="width:100%;height:315px" style="width:640px;max-width:100%;height:360px"></iframe>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 chamadas text-center">
+                    <ul class="list-inline">
+                        <li class="frasehome"><a href="/cadastro "><img src="/upload/img1-Cadastre-se-e-receba-novidades-10.jpg"><span>Cadastre-se e receba novidades</span></a></li><li class="frasehome"><a href="/contato"><img src="/upload/img1-ENTRE-EM-CONTATO-14.jpg"><span>ENTRE EM CONTATO</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div-->
+
+    <div id="destaquehome">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 video text-center">
+                    <iframe src="https://www.youtube.com/embed/HCvVMVZh7PY?rel=0&controls=0&showinfo=0&modestbranding=1" frameborder="0" allowfullscreen xstyle="width:100%;height:315px" style="width:640px;max-width:100%;height:360px"></iframe>
+                </div>
+                <div class="col-md-4 chamadas">
+                    <ul class="list-unstyled">
+                        <li class="frasehome"><a href="/cadastro "><img src="/upload/img1-Cadastre-se-e-receba-novidades-10.jpg"><span>Cadastre-se e receba novidades</span></a></li><li class="frasehome"><a href="/contato"><img src="/upload/img1-ENTRE-EM-CONTATO-14.jpg"><span>ENTRE EM CONTATO</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            var atualiza_altura_video = function(){
+                // $('#destaquehome .video').css('height', $('#destaquehome .chamadas').height()+'px');
+            }
+            // atualiza_altura_video();
+        });
+    </script>
+
+	</section>
+<script>
+	$(document).ready(function(){
+		var swiper = new Swiper ('#slide-lancamentos',{
+			slidesPerGroup: 4,
+			slidesPerView: 4,
+			breakpoints:{
+				991:{
+					slidesPerGroup: 2,
+					slidesPerView: 2
+				},
+			},
+			navigation: {
+				nextEl: '#next-lanc',
+				prevEl: '#prev-lanc',
+			},
+		}) ;
+		var swiper = new Swiper ('#Sestoque',{
+			slidesPerGroup: 4,
+			slidesPerView: 4,
+			breakpoints:{
+				991:{
+					slidesPerGroup: 2,
+					slidesPerView: 2
+				},
+			},
+			navigation: {
+				nextEl: '#next-estoque',
+				prevEl: '#prev-estoque',
+			},
+		}) ;
+	});
+</script>
+<script>
+$(document).ready(function(){
+
+    // Seleciona a div que vai ser responsiva
+    
+    $('.instagram', this).each(function(){  
+      
+      // inicia a var
+      box_size = 0;
+      
+      // Seleção do campo que vai ser procurado
+      $('.instagram_div').each(function(){
+        
+        // Loopa e grava a maior encontrada
+        if($(this).height() > box_size) {
+          box_size = $(this).height(); 
+        }
+      
+      });  
+            
+      // Seta o tamanho para todas as divs filhas 
+      $('.instagram_div',this).height(box_size);
+                    
+    }); 
+
+});
+
+</script>
+
+		</article>
+		
+        <div class="voltar_topo"></div>
+        <a href="https://wa.me/message/TA56R35TL63SB1" target="_blank" title="Whatsapp XBZ Brindes" class="whatsapp-fixo"></a>
+
+        <footer class="footer" role="contentinfo" >
+        	<div class="ft-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <ul class="list-unstyled">
+                            <li class="foothome"><a href="/">Home</a></li>
+                            <li class="footendereco"><a href="/contato">Rua Antônio Pais, 90 - SP</a></li>
+                            <li class="footfone"><a href="/contato">(11) 2565-1400</a></li>
+                            <li class="footemail"><a href="/contato">sac@xbzbrindes.com.br</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-xs-12 col-sm-12">
+                        <ul class="list-unstyled">
+                            <li class="footrede footyoutube"><a href="https://www.youtube.com/channel/UCsjAG1g9Tx6pYRwMNKOGMDQ">#</a></li>
+                            <li class="footrede footface"><a href="https://www.facebook.com/XBZBRINDES/">#</a></li>
+                            <li class="footrede footinsta"><a href="https://www.instagram.com/xbzbrindes_/">#</a></li>
+                            <!--li class="footrede redes-sociais"><a href="https://www.facebook.com/XBZBRINDES/">Redes Sociais</a></li-->
+                        </ul>
+                    </div>
+                    <div class="col-xs-8 visible-xs">
+                    	<li class="politicas"><a href="/politica-site">Políticas do site</a></li>
+                	</div>
+                    <div class="col-xs-3 col-sm-2 hidden-sm hidden-xs" style="padding:0">
+                        <ul class="list-unstyled lista-links">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="http://www.xbzbrindes.com.br/sobre">Sobre</a></li>
+                            <li><a href="http://www.xbzbrindes.com.br/cadastro">Cadastro</a></li>
+                            <li><a href="https://wa.me/message/TA56R35TL63SB1">Contato</a></li>
+                            <li><a href="https://xbzbrindes.pandape.infojobs.com.br/">Trabalhe Conosco</a></li>
+                            <li><a href="http://www.xbzbrindes.com.br/sac-xbz">Sac</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-3 col-sm-2 hidden-sm hidden-xs">
+                        <ul class="list-unstyled lista-links">
+                            <li><a href="/lancamentos">Lançamentos</a></li>
+                            <!-- <li><a href="/promocoes">Promoções</a></li> -->
+                            <li><a href="/ponta-de-estoque">Ponta de estoque</a></li>
+                            <li><a href="http://www.xbzbrindes.com.br/brindes">Produtos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-5 col-sm-2 hidden-sm hidden-xs">
+                        <ul class="list-unstyled lista-links-right">
+                            <li><a href="/institucional/Politicas-do-site">Políticas do site</a></li><li><a href="/institucional/Politica-de-entrega">Política de entrega</a></li><li><a href="/institucional/Garantia-de-produto">Garantia de produto</a></li><li><a href="/institucional/Suporte-tecnico">Suporte técnico</a></li><li><a href="/institucional/Devolucao-de-produto">Devolução de produto</a></li><li><a href="/institucional/Empresas-Gravacao">Empresas Gravação</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="ft-2">
+            	<div class="container">
+            		<div class="copyright">
+        				<p><strong>© 2020 XBZ Brindes </strong></p>
+        				<p>Todos os direitos reservados.</p>
+            		</div>
+            		<div class="desenvolvido">
+            			<p>Desenvolvimento: <a href="http://www.ajung.com.br/" target="_blank">A.Jung</a></p>
+            		</div>
+    			</div>
+            </div>
+        </footer>
+
+		<div class="modal fade" id="esqueciSenha" tabindex="-1" role="dialog" aria-labelledby="esqueciSenha">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                        <h4 class="modal-title">ESQUECEU SUA SENHA?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert" id="senhamsg" style="display: none"></div>
+                        <form action="/senha" method="post" class="form-senha js-input">
+                            <input type="hidden" name="enviar" value="1" />
+                            <div class="form-group">
+                                <label for="email" class="control-label">Digite seu e-mail de cadastro:</label>
+                                <input type="text" name="email" class="form-control" value="" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-block btn-primary" onclick="$('.form-senha').submit();">ENVIAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalMensagem" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="lead">
+                            
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-block btn-primary" onclick="$('#modalMensagem').modal('hide');">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"-->
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href='//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" type="text/css" href="/js/jquery-ui-1.11.2/jquery-ui.min.css" />
+        <link rel="stylesheet" type="text/css" href="/js/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/js/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+        <link rel="stylesheet" type="text/css" href="/js/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+
+        <script type="text/javascript" src="/js/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.form.js"></script>
+        <script type="text/javascript" src="/js/jquery.maskedinput.min.js"></script>
+        <script type="text/javascript" src="/js/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
+        <script type="text/javascript" src="/js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
+        <script type="text/javascript" src="/js/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+        <script type="text/javascript" src="/js/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+        <script type="text/javascript" src="/js/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+        <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js" async defer ></script>
+        <script type="text/javascript" src="/js/formata_validadcoes.js"></script>
+        <script type="text/javascript" src="/js/geral.js?x=143309"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js" ></script>
+        <script type="text/javascript" src="/js/lib/jquery.lazyload.js" ></script>
+        <script type="text/javascript" src="/js/swiper.min.js" ></script>
+
+        <script src="/js/360/spritespin.js" type="text/javascript"></script>
+        <!--script src="/js/360/vue.min.js" type="text/javascript"></script-->
+        <script src='https://unpkg.com/vue@2.5.16/dist/vue.js' type='text/javascript'></script>
+        <script>
+            var EMPRESA = 'XBZ Brindes';
+        </script>
+
+        <script type="text/javascript" src="/js/home.js?x=2" ></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ 
+  ga('create', 'UA-91052440-1', 'auto');
+  ga('send', 'pageview');
+ 
+</script>
+
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4&appId=1528030670810551";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <script>
+
+            // $("img.lazy").lazyload();
+
+            $(document).ready(function(){
+
+                $("img.lazy").lazyload({
+                    // threshold : 200
+                    effect:"fadeIn"
+                    ,threshold:200
+                });
+
+                $("._tooltipe").tooltip();
+				
+				$(".fecha_cliente").bind('click',function(){
+					//$(".logo_cliente_logado").fadeOut();
+					$(".logo_cliente_logado").animate({width:'toggle'});
+				});
+
+				$(".l_logado").bind("click",function(){
+					$("#l_menu_cliente").slideToggle("slow");
+				});
+
+				$(".l_esqueceu_voltar").bind("click",function(){
+					$(".l_form_esqueci").fadeOut();
+				});
+				
+				$("#form_login").ajaxForm({
+					dataType:  "json",
+					beforeSubmit : function(){
+						$(".block_login .l_mensagem").fadeIn();
+						$(".block_login .l_mensagem").html("Carregando...");
+					},
+					success : function(out){
+						if(out[0]==0){
+							$(".block_login .l_mensagem").html(out[1]);
+							$(".block_login .l_mensagem").animate({"left":0},400);
+						}
+						if(out[0]==1){
+							$(".block_login .l_mensagem").html(out[1]);
+							$(".block_login .l_mensagem").animate({"left":0},400);
+							setTimeout(function(){location.reload();},1000);
+						}
+						setTimeout(function(){$(".block_login .l_mensagem").animate({"left":"100%"},300);},2500);
+					}
+				}); 
+
+				$(".voltar_topo").bind("click", function(){
+					$('html, body').animate({scrollTop:0}, 'slow');
+				});
+
+                // Esqueci a senha
+                $('.form-senha').ajaxForm({
+                    dataType: 'json'
+                    ,success: function(out){
+                        if(out.status){
+                            // $("#senhamsg").addClass('alert-success').html(out.msg).fadeIn();
+                            $('.form-senha .js-input').html('<div class="alert alert-success">'+out.msg+'</div>');
+                            $('.form-senha.js-input').html('<div class="alert alert-success">'+out.msg+'</div>');
+                            $('#esqueciSenha .btn-primary').hide();
+                        }
+                        else {
+                            $('#esqueciSenha .btn-primary').attr('disabled', false);
+                            $("#senhamsg").addClass('alert-danger').html(out.msg).fadeIn();
+                        }
+                    }
+                    ,error: function(out1, out2){
+                        $('#esqueciSenha .btn-primary').attr('disabled', false);
+                        $("#senhamsg").addClass('alert-danger').html('Erro: ' + out1 + ' - '.out2).fadeIn();
+                    }
+                    ,beforeSend: function(){
+                        $('#esqueciSenha .btn-primary').attr('disabled', true);
+                        $("#senhamsg").removeClass('alert-danger').removeClass('alert-success').html('').hide();
+                    }
+                });
+				
+				$(window).scroll(function() {
+					nScrollPosition = $( window ).scrollTop();
+					
+					if(nScrollPosition>=100){
+						// $( ".voltar_topo" ).css( "display", "block" );
+						 $( ".voltar_topo" ).fadeIn();
+					}else{
+						 //$( ".voltar_topo" ).css( "display", "none" );
+						 $( ".voltar_topo" ).fadeOut();
+					}
+				});
+
+                $('.menu-mobile .busca a').bind('click', function(){
+                    $('.form_busca_mobile').slideToggle();
+                });
+
+                $('.menu-mobile .dropdown-toggle').bind('click', function(){
+                    // alert(1);
+                    $('.menu-mobile .dropdown-menu').slideToggle();
+                });
+
+                });
+		</script>
+
+		
+
+        <!-- / Object  -->
+
+	</body>
+</html>
